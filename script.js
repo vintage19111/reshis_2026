@@ -13,6 +13,7 @@ const resultDate = document.querySelector("#result-date");
 const seatsValue = document.querySelector("#seats-value");
 const demandValue = document.querySelector("#demand-value");
 const flownValue = document.querySelector("#flown-value");
+const availableSeatsValue = document.querySelector("#available-seats-value");
 const demandLabel = document.querySelector("#demand-label");
 const quantileChart = document.querySelector("#quantile-chart");
 const quantileValues = document.querySelector("#quantile-values");
@@ -359,6 +360,7 @@ function resetSelection() {
   seatsValue.textContent = "—";
   demandValue.textContent = "—";
   flownValue.textContent = "—";
+  availableSeatsValue.textContent = "—";
   demandLabel.textContent = "Спрос за день · P50";
   daysDescription.textContent = "Три дня до и после выбранной даты · сценарий P50";
   dataStatus.textContent = "";
@@ -706,12 +708,15 @@ function renderSummary(row, price, parameters) {
   const selectedScenario = row.quantiles.find(({ level }) => level === selectedQuantileLevel);
   const selectedBaseDemand = selectedScenario?.baseDemand ?? row.medianDemand;
   const selectedDemand = calculateDemand(selectedBaseDemand, price, parameters);
+  const flown = Math.min(row.seats, selectedDemand);
+  const availableSeats = Math.max(0, row.seats - flown);
   const selectedLabel = "P" + Math.round(selectedQuantileLevel * 100);
   demandLabel.textContent = "Спрос за день · " + selectedLabel;
   daysDescription.textContent = "Три дня до и после выбранной даты · сценарий " + selectedLabel;
   seatsValue.textContent = numberFormat.format(row.seats);
   demandValue.textContent = passengerFormat.format(selectedDemand);
-  flownValue.textContent = passengerFormat.format(Math.min(row.seats, selectedDemand));
+  flownValue.textContent = passengerFormat.format(flown);
+  availableSeatsValue.textContent = numberFormat.format(availableSeats);
   renderQuantileChart(row, price, parameters);
 
   const routeRows = forecastRows
