@@ -84,7 +84,6 @@
                 id="destination"
                 name="destination"
                 required
-                disabled
               ></select>
             </div>
 
@@ -94,11 +93,10 @@
                 id="flight-date"
                 name="flightDate"
                 required
-                disabled
               ></select>
             </div>
 
-            <button class="route-form__submit" type="button" disabled>
+            <button class="route-form__submit" id="calculate-button" type="submit" disabled>
               <span>Рассчитать спрос</span>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14m-6-6 6 6-6 6" />
@@ -110,148 +108,53 @@
         </div>
       </section>
 
-      <section
-        class="results-section"
-        id="results"
-        aria-labelledby="route-title"
-        aria-live="polite"
-        hidden
-      >
+      <section class="results-section" id="results" aria-labelledby="route-title" aria-live="polite" hidden>
         <div class="results-panel">
-          <div class="results-header">
-            <div class="results-header__copy">
-              <div class="results-title-row">
-                <h2 id="route-title">Маршрут</h2>
-                <span class="demo-badge">Демо-данные</span>
-              </div>
-              <p id="result-date" class="results-subtitle"></p>
-            </div>
-          </div>
+          <header class="results-heading">
+            <h2 id="route-title">Прогноз спроса</h2>
+            <p id="result-date"></p>
+          </header>
 
-          <div class="metrics-grid">
-            <article class="metric-card">
-              <div class="metric-card__label">
-                <span>Мест в самолёте</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M4 20h16M7 17V8m5 9V4m5 13v-6" />
-                </svg>
-              </div>
-              <div class="metric-card__value">180 <span>кресел</span></div>
-              <p class="metric-card__note">Борт: Airbus A320</p>
+          <div class="summary-grid" aria-label="Сводка на выбранную дату">
+            <article class="summary-card">
+              <span class="summary-card__label">Количество мест</span>
+              <strong class="summary-card__value" id="seats-value">—</strong>
+              <span class="summary-card__unit">мест в самолёте</span>
             </article>
-
-            <article class="metric-card metric-card--demand">
-              <div class="metric-card__label">
-                <span>Желают купить · медиана</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="9" cy="8" r="2.5" />
-                  <circle cx="17" cy="9" r="2" />
-                  <path d="M3.5 18a5.5 5.5 0 0 1 11 0m1-4a4 4 0 0 1 5 3.8" />
-                </svg>
-              </div>
-              <div class="metric-card__value">214 <span class="metric-card__delta">+18,9% к ёмкости</span></div>
-              <p class="metric-card__note">P50 · доверительный интервал [198–230]</p>
+            <article class="summary-card summary-card--demand">
+              <span class="summary-card__label">Спрос за день</span>
+              <strong class="summary-card__value" id="demand-value">—</strong>
+              <span class="summary-card__unit">пассажиров</span>
             </article>
-
-            <article class="metric-card metric-card--sales">
-              <div class="metric-card__label">
-                <span>Прогноз продаж</span>
-                <span class="limit-badge">Лимит 100%</span>
-              </div>
-              <div class="metric-card__value">180 <span>билетов из 180</span></div>
-              <p class="metric-card__note">Неудовлетворённый спрос: около 34 пассажиров</p>
+            <article class="summary-card summary-card--flown">
+              <span class="summary-card__label">Полетят</span>
+              <strong class="summary-card__value" id="flown-value">—</strong>
+              <span class="summary-card__unit">с учётом мест</span>
             </article>
           </div>
 
-          <aside class="demand-alert" aria-label="Предупреждение о превышении вместимости">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m12 3 10 18H2L12 3Z" />
-              <path d="M12 9v5m0 3h.01" />
-            </svg>
-            <p>
-              <strong>Спрос выше числа мест — продажи упираются в лимит.</strong>
-              Значения ниже приведены для демонстрации интерфейса.
-            </p>
-          </aside>
-
-          <section class="chart-card" aria-labelledby="chart-title">
-            <div class="chart-card__header">
+          <section class="days-panel" aria-labelledby="days-title">
+            <div class="days-panel__heading">
               <div>
-                <h3 id="chart-title">Распределение вероятного спроса</h3>
-                <p>Квантильная модель · демонстрационный пример</p>
+                <h3 id="days-title">Спрос по соседним дням</h3>
+                <p>Три дня до и после выбранной даты</p>
               </div>
-              <ul class="chart-legend" aria-label="Обозначения графика">
-                <li><span class="legend-dot legend-dot--demand"></span>Медиана (P50)</li>
-                <li><span class="legend-line"></span>Лимит мест (180)</li>
-                <li><span class="legend-dot legend-dot--shortage"></span>Дефицит мест</li>
-              </ul>
+              <span class="days-panel__legend"><span aria-hidden="true"></span>Выбранный день</span>
             </div>
-
-            <div class="chart-wrap">
-              <svg
-                class="demand-chart"
-                viewBox="0 0 1000 300"
-                role="img"
-                aria-labelledby="chart-svg-title chart-svg-description"
-                preserveAspectRatio="none"
-              >
-                <title id="chart-svg-title">Пример распределения спроса</title>
-                <desc id="chart-svg-description">
-                  Медианный спрос составляет 214 пассажиров при вместимости 180 мест.
-                </desc>
-                <line class="chart-gridline" x1="50" y1="55" x2="970" y2="55" />
-                <line class="chart-gridline" x1="50" y1="110" x2="970" y2="110" />
-                <line class="chart-gridline" x1="50" y1="165" x2="970" y2="165" />
-                <line class="chart-gridline" x1="50" y1="220" x2="970" y2="220" />
-                <line class="chart-axis" x1="50" y1="250" x2="970" y2="250" />
-                <path
-                  class="chart-area chart-area--demand"
-                  d="M50 250 C140 246 208 224 290 180 C365 140 414 106 485 98 L485 250 Z"
-                />
-                <path
-                  class="chart-area chart-area--shortage"
-                  d="M485 250 L485 98 C535 52 585 29 650 35 C730 43 787 93 846 152 C896 203 935 234 970 250 Z"
-                />
-                <path
-                  class="chart-curve"
-                  d="M50 250 C140 246 208 224 290 180 C365 140 414 106 485 98 C535 52 585 29 650 35 C730 43 787 93 846 152 C896 203 935 234 970 250"
-                />
-                <line class="chart-limit" x1="485" y1="48" x2="485" y2="250" />
-                <line class="chart-median" x1="650" y1="35" x2="650" y2="250" />
-                <circle class="chart-point" cx="290" cy="180" r="5" />
-                <circle class="chart-point" cx="400" cy="116" r="5" />
-                <circle class="chart-point" cx="535" cy="66" r="5" />
-                <circle class="chart-point chart-point--median" cx="650" cy="35" r="7" />
-                <circle class="chart-point" cx="760" cy="70" r="5" />
-                <circle class="chart-point" cx="846" cy="152" r="5" />
-                <rect class="chart-label-bg chart-label-bg--limit" x="428" y="20" width="114" height="26" rx="6" />
-                <text class="chart-label chart-label--limit" x="485" y="38" text-anchor="middle">Мест: 180</text>
-                <rect class="chart-label-bg chart-label-bg--median" x="590" y="4" width="120" height="25" rx="6" />
-                <text class="chart-label chart-label--median" x="650" y="21" text-anchor="middle">Медиана: 214</text>
-                <text class="chart-tick" x="190" y="276" text-anchor="middle">150</text>
-                <text class="chart-tick chart-tick--limit" x="485" y="276" text-anchor="middle">180 · лимит</text>
-                <text class="chart-tick chart-tick--median" x="650" y="276" text-anchor="middle">214 · P50</text>
-                <text class="chart-tick" x="910" y="276" text-anchor="middle">262</text>
-              </svg>
+            <div class="days-table-wrap">
+              <table class="days-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Места</th>
+                    <th scope="col">Спрос</th>
+                    <th scope="col">Полетят</th>
+                  </tr>
+                </thead>
+                <tbody id="days-table-body"></tbody>
+              </table>
             </div>
-          </section>
-
-          <section class="quantiles" aria-labelledby="quantiles-title">
-            <div class="quantiles__heading">
-              <h3 id="quantiles-title">Вероятностные квантили прогноза</h3>
-              <span>Человек</span>
-            </div>
-            <div class="quantile-grid">
-              <div class="quantile-card"><span>P10</span><strong>150</strong></div>
-              <div class="quantile-card"><span>P20</span><strong>168</strong></div>
-              <div class="quantile-card"><span>P30</span><strong>184</strong></div>
-              <div class="quantile-card"><span>P40</span><strong>200</strong></div>
-              <div class="quantile-card quantile-card--median"><span>P50 · медиана</span><strong>214</strong></div>
-              <div class="quantile-card"><span>P60</span><strong>226</strong></div>
-              <div class="quantile-card"><span>P70</span><strong>238</strong></div>
-              <div class="quantile-card"><span>P80</span><strong>249</strong></div>
-              <div class="quantile-card"><span>P90</span><strong>262</strong></div>
-            </div>
+            <p class="days-panel__note" id="days-note" hidden></p>
           </section>
         </div>
       </section>
