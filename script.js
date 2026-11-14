@@ -658,27 +658,6 @@ function drawQuantileChart() {
     }),
   );
 
-  const capacityLabel = "Мест: " + numberFormat.format(chart.seats);
-  const capacityLabelWidth = capacityLabel.length * 7.2 + 16;
-  const capacityLabelX = plotRight - capacityLabelWidth;
-  const capacityLabelY = Math.max(plotTop, capacityY - 25);
-  quantileChart.append(
-    createSvgElement("rect", {
-      x: capacityLabelX,
-      y: capacityLabelY,
-      width: capacityLabelWidth,
-      height: 21,
-      rx: 8,
-      class: "chart-label-bg--limit",
-    }),
-    createSvgElement("text", {
-      x: capacityLabelX + capacityLabelWidth / 2,
-      y: capacityLabelY + 14,
-      "text-anchor": "middle",
-      class: "chart-label chart-label--limit",
-    }, capacityLabel),
-  );
-
   points.forEach((point) => {
     const isMedian = point.level === 0.5;
     const isSelected = point.level === chart.selectedLevel;
