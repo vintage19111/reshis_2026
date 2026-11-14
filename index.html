@@ -14,7 +14,7 @@
   <body>
     <header class="topbar">
       <div class="topbar__inner">
-        <a class="brand" href="#top" aria-label="Решись Авиа — на главную">
+          <a class="brand" id="brand-home" href="#top" aria-label="Решись Авиа — сбросить расчёт и перейти наверх">
           <span class="brand__mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="M21.4 14.1v-2l-8.3-5.2V2.7a1.1 1.1 0 0 0-2.2 0v4.2l-8.3 5.2v2l8.3-2.6v4.8l-2.5 1.6v1.4l3.6-1 3.6 1v-1.4l-2.5-1.6v-4.8l8.3 2.6Z" />
@@ -64,7 +64,7 @@
           </p>
           <h1 id="page-title">Рассчитай спрос</h1>
           <p class="hero__description">
-            Выберите направление и дату, чтобы оценить интерес к рейсу.
+            Выберите направление, дату и цену билета, чтобы оценить спрос на рейс.
           </p>
 
           <form class="route-form" id="route-form">
@@ -96,12 +96,40 @@
               ></select>
             </div>
 
-            <button class="route-form__submit" id="calculate-button" type="submit" disabled>
-              <span>Рассчитать спрос</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </button>
+            <div class="route-form__field route-form__field--price">
+              <label for="ticket-price">Цена билета, ₽</label>
+              <input
+                id="ticket-price"
+                name="ticketPrice"
+                type="number"
+                inputmode="numeric"
+                step="1"
+                placeholder="Выберите маршрут"
+                disabled
+                required
+              />
+            </div>
+
+            <div class="route-form__actions">
+              <button class="route-form__submit" id="calculate-button" type="submit" disabled>
+                <span>Рассчитать спрос</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+              <button
+                class="route-form__reset"
+                id="reset-form"
+                type="button"
+                aria-label="Сбросить маршрут, дату и цену"
+                title="Сбросить выбранные параметры"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m6 6 12 12M18 6 6 18" />
+                </svg>
+                <span>Сбросить</span>
+              </button>
+            </div>
           </form>
 
           <p class="hero__hint" id="data-status" aria-live="polite">Загружаем прогноз…</p>
@@ -122,7 +150,7 @@
               <span class="summary-card__unit">мест в самолёте</span>
             </article>
             <article class="summary-card summary-card--demand">
-              <span class="summary-card__label">Спрос за день</span>
+              <span class="summary-card__label" id="demand-label">Спрос за день · P50</span>
               <strong class="summary-card__value" id="demand-value">—</strong>
               <span class="summary-card__unit">пассажиров</span>
             </article>
@@ -133,11 +161,43 @@
             </article>
           </div>
 
+          <section class="chart-card" aria-labelledby="quantile-chart-title">
+            <header class="chart-card__header">
+              <div>
+                <h3 id="quantile-chart-title">Распределение спроса</h3>
+                <p>Выбранная дата · спрос, пассажиров</p>
+              </div>
+              <ul class="chart-legend" aria-label="Обозначения графика">
+                <li><span class="legend-dot legend-dot--demand" aria-hidden="true"></span>Спрос</li>
+                <li><span class="legend-line" aria-hidden="true"></span>Мест в самолёте</li>
+                <li><span class="legend-line legend-line--selection" aria-hidden="true"></span>Выбранный квантиль</li>
+                <li><span class="legend-dot legend-dot--shortage" aria-hidden="true"></span>Спрос выше вместимости</li>
+              </ul>
+            </header>
+
+            <div class="chart-wrap">
+              <svg
+                class="demand-chart"
+                id="quantile-chart"
+                role="img"
+                aria-label="Прогноз спроса по квантилям от P10 до P90"
+              ></svg>
+            </div>
+
+            <div class="quantiles">
+              <div class="quantiles__heading">
+                <h4>Спрос по квантилям</h4>
+                <span>Нажмите сценарий · P50 — медиана</span>
+              </div>
+              <div class="quantile-grid" id="quantile-values" role="group" aria-label="Выберите квантиль спроса P10–P90"></div>
+            </div>
+          </section>
+
           <section class="days-panel" aria-labelledby="days-title">
             <div class="days-panel__heading">
               <div>
                 <h3 id="days-title">Спрос по соседним дням</h3>
-                <p>Три дня до и после выбранной даты</p>
+                <p id="days-description">Три дня до и после выбранной даты · сценарий P50</p>
               </div>
               <span class="days-panel__legend"><span aria-hidden="true"></span>Выбранный день</span>
             </div>

@@ -682,7 +682,12 @@ button {
 
 .route-form {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(10.5rem, 0.72fr) auto;
+  grid-template-columns:
+    minmax(7.75rem, 1fr)
+    minmax(8rem, 1fr)
+    minmax(7rem, 0.72fr)
+    minmax(7.5rem, 0.78fr)
+    minmax(14rem, auto);
   gap: 0.2rem;
   align-items: stretch;
   margin-top: 2rem;
@@ -757,14 +762,28 @@ button {
   opacity: 0.7;
 }
 
+.route-form__field input:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
 .route-form__submit:disabled {
   cursor: not-allowed;
   opacity: 0.65;
 }
 
+.route-form__actions {
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
 .route-form__submit {
   display: inline-flex;
+  min-width: 0;
   min-height: 3.5rem;
+  flex: 1 1 auto;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
@@ -780,12 +799,48 @@ button {
   transition: transform 160ms ease, background-color 160ms ease;
 }
 
+.route-form__reset {
+  display: inline-flex;
+  min-height: 3.5rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--color-route-border);
+  border-radius: var(--radius-md);
+  color: var(--color-route-muted);
+  background: var(--color-route-surface);
+  font-size: var(--font-size-label-md);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+}
+
+.route-form__reset:hover {
+  border-color: var(--color-primary);
+  color: var(--color-on-route-surface);
+  background: color-mix(in srgb, var(--color-route-surface) 88%, var(--color-primary));
+}
+
+.route-form__reset svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
 .route-form__submit:hover {
   transform: translateY(-1px);
   background-color: color-mix(in srgb, var(--color-route-action) 88%, var(--color-primary));
 }
 
 .route-form__submit:focus-visible,
+.route-form__reset:focus-visible,
 .icon-button:focus-visible {
   outline: 3px solid var(--color-route-action-accent);
   outline-offset: 3px;
@@ -1009,7 +1064,8 @@ button {
 }
 
 .chart-card__header h3,
-.quantiles__heading h3 {
+.quantiles__heading h3,
+.quantiles__heading h4 {
   color: var(--color-text);
   font-size: var(--font-size-title-sm);
   font-weight: var(--font-weight-bold);
@@ -1059,6 +1115,11 @@ button {
   border-top: 2px dashed var(--color-warning);
 }
 
+.legend-line--selection {
+  border-top-style: solid;
+  border-top-color: var(--color-primary);
+}
+
 .chart-wrap {
   width: 100%;
   min-height: 14rem;
@@ -1106,9 +1167,16 @@ button {
 }
 
 .chart-median {
-  stroke: var(--color-primary);
+  stroke: var(--color-outline);
   stroke-dasharray: 3 6;
-  stroke-width: 2;
+  stroke-opacity: 0.7;
+  stroke-width: 1.5;
+}
+
+.chart-selection {
+  stroke: var(--color-primary);
+  stroke-dasharray: 4 4;
+  stroke-width: 2.5;
 }
 
 .chart-point {
@@ -1116,6 +1184,13 @@ button {
 }
 
 .chart-point--median {
+  fill: var(--color-surface);
+  stroke: var(--color-primary);
+  stroke-width: 2;
+}
+
+.chart-point--selected {
+  fill: var(--color-primary);
   stroke: var(--color-surface);
   stroke-width: 3;
 }
@@ -1152,7 +1227,12 @@ button {
 }
 
 .chart-tick--median {
-  fill: var(--color-on-primary-container);
+  fill: var(--color-text-muted);
+}
+
+.chart-tick--selected {
+  fill: var(--color-primary);
+  font-weight: var(--font-weight-extrabold);
 }
 
 .quantiles {
@@ -1167,7 +1247,8 @@ button {
   margin-bottom: 0.75rem;
 }
 
-.quantiles__heading h3 {
+.quantiles__heading h3,
+.quantiles__heading h4 {
   color: var(--color-text-muted);
   font-size: var(--font-size-label-sm);
   letter-spacing: var(--letter-spacing-label-sm);
@@ -1186,6 +1267,7 @@ button {
 }
 
 .quantile-card {
+  position: relative;
   display: flex;
   min-width: 0;
   min-height: 4.25rem;
@@ -1194,9 +1276,37 @@ button {
   justify-content: center;
   gap: 0.2rem;
   padding: 0.5rem 0.25rem;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+  color: var(--color-text);
   background: var(--color-surface-container-high);
+  font-family: var(--font-family-body);
   text-align: center;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.quantile-card::before {
+  position: absolute;
+  top: -0.3rem;
+  left: 50%;
+  width: 1.1rem;
+  height: 0.2rem;
+  border-radius: var(--radius-full);
+  background: transparent;
+  content: "";
+  transform: translateX(-50%);
+  transition: background-color 160ms ease;
+}
+
+.quantile-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.quantile-card:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
+  outline-offset: 3px;
 }
 
 .quantile-card span {
@@ -1215,14 +1325,24 @@ button {
   font-weight: var(--font-weight-bold);
 }
 
-.quantile-card--median {
-  color: var(--color-on-primary);
+.quantile-card--median:not(.quantile-card--selected) {
+  border-style: dashed;
+  border-color: var(--color-primary);
+}
+
+.quantile-card--selected {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 14%, var(--color-surface));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.quantile-card--selected::before {
   background: var(--color-primary);
 }
 
-.quantile-card--median span,
-.quantile-card--median strong {
-  color: var(--color-on-primary);
+.quantile-card--selected span,
+.quantile-card--selected strong {
+  color: var(--color-primary);
 }
 
 body.has-results .hero {
@@ -1258,7 +1378,17 @@ body.has-results .hero__hint {
 
   .route-form__submit {
     min-height: 4.4rem;
+    margin: 0;
+  }
+
+  .route-form__actions {
+    grid-column: 1 / -1;
+    min-height: 4.4rem;
     margin: 0.35rem;
+  }
+
+  .route-form__reset {
+    min-height: 4.4rem;
   }
 
   .chart-card__header {
@@ -1380,7 +1510,22 @@ body.has-results .hero__hint {
 
   .route-form__submit {
     min-height: 3.5rem;
+    padding-inline: 0.8rem;
+    margin: 0;
+  }
+
+  .route-form__actions {
     margin: 0.4rem 0 0;
+  }
+
+  .route-form__reset {
+    width: 3.5rem;
+    min-height: 3.5rem;
+    padding: 0.5rem;
+  }
+
+  .route-form__reset span {
+    display: none;
   }
 
   .hero__hint {
@@ -1441,6 +1586,10 @@ body.has-results .hero__hint {
     padding: 0.85rem 0.65rem 0.5rem;
   }
 
+  .chart-wrap {
+    min-height: 13rem;
+  }
+
   .chart-card__header {
     gap: 0.7rem;
     margin: 0 0.25rem 0.5rem;
@@ -1449,6 +1598,14 @@ body.has-results .hero__hint {
   .chart-legend {
     gap: 0.4rem 0.75rem;
     font-size: 0.625rem;
+  }
+
+  .chart-label {
+    font-size: 11px;
+  }
+
+  .chart-tick {
+    font-size: 10px;
   }
 
   .demand-chart {
