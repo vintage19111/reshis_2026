@@ -713,7 +713,8 @@ button {
   text-transform: uppercase;
 }
 
-.route-form__field input {
+.route-form__field input,
+.route-form__field select {
   width: 100%;
   min-width: 0;
   padding: 0;
@@ -732,13 +733,30 @@ button {
   opacity: 0.85;
 }
 
-.route-form__field input:focus-visible {
+.route-form__field input:focus-visible,
+.route-form__field select:focus-visible {
   border-radius: var(--radius-sm);
   box-shadow: 0 0 0 2px var(--color-route-action-accent);
 }
 
-.route-form__field input[type="date"] {
+.route-form__field select {
   accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.route-form__field select option {
+  color: var(--color-on-surface);
+  background-color: var(--color-surface);
+}
+
+.route-form__field select:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.route-form__submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 
 .route-form__submit {
@@ -789,6 +807,10 @@ button {
   margin-top: 1rem;
   color: color-mix(in srgb, var(--color-on-hero-surface) 82%, transparent);
   font-size: var(--font-size-label-md);
+}
+
+.hero__hint:empty {
+  display: none;
 }
 
 .results-section {
@@ -1348,7 +1370,8 @@ body.has-results .hero__hint {
     margin-bottom: 0.2rem;
   }
 
-  .route-form__field input {
+  .route-form__field input,
+  .route-form__field select {
     font-size: var(--font-size-body-lg);
   }
 

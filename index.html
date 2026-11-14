@@ -70,40 +70,35 @@
           <form class="route-form" id="route-form">
             <div class="route-form__field">
               <label for="origin">Откуда</label>
-              <input
+              <select
                 id="origin"
                 name="origin"
-                type="text"
-                placeholder="Город отправления"
-                autocomplete="off"
                 required
-              />
+                disabled
+              ></select>
             </div>
 
             <div class="route-form__field">
               <label for="destination">Куда</label>
-              <input
+              <select
                 id="destination"
                 name="destination"
-                type="text"
-                placeholder="Город назначения"
-                autocomplete="off"
                 required
-              />
+                disabled
+              ></select>
             </div>
 
             <div class="route-form__field route-form__field--date">
               <label for="flight-date">Когда</label>
-              <input
+              <select
                 id="flight-date"
                 name="flightDate"
-                type="date"
-                value="2026-06-15"
                 required
-              />
+                disabled
+              ></select>
             </div>
 
-            <button class="route-form__submit" type="submit">
+            <button class="route-form__submit" type="button" disabled>
               <span>Рассчитать спрос</span>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14m-6-6 6 6-6 6" />
@@ -111,7 +106,7 @@
             </button>
           </form>
 
-          <p class="hero__hint">Заполните города отправления и назначения</p>
+          <p class="hero__hint" id="data-status" aria-live="polite">Загружаем прогноз…</p>
         </div>
       </section>
 
