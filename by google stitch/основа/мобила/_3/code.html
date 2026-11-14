@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#111316;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error": "#ffb4ab", "on-secondary-container": "#4c2f00", "on-background": "#e2e2e6", "tertiary-container": "#3ba7c7", "surface": "#111316", "surface-container-high": "#282a2d", "on-surface-variant": "#bcc8cd", "surface-container-highest": "#333538", "primary-container": "#1aa9c9", "surface-tint": "#5dd5f7", "tertiary-fixed": "#b6ebff", "primary": "#5dd5f7", "surface-container-lowest": "#0c0e11", "inverse-primary": "#00677d", "on-primary-fixed-variant": "#004e5e", "on-tertiary-fixed-variant": "#004e60", "surface-container-low": "#1a1c1f", "surface-bright": "#37393d", "inverse-on-surface": "#2f3034", "secondary-fixed-dim": "#ffb957", "background": "#111316", "primary-fixed-dim": "#5dd5f7", "on-tertiary-fixed": "#001f28", "on-tertiary": "#003543", "on-primary-fixed": "#001f27", "tertiary": "#6fd3f5", "surface-container": "#1e2023", "secondary-container": "#d98e00", "on-tertiary-container": "#003846", "on-primary-container": "#003845", "secondary-fixed": "#ffddb5", "on-primary": "#003642", "on-secondary-fixed": "#2a1800", "surface-dim": "#111316", "surface-variant": "#333538", "outline-variant": "#3d494d", "on-error": "#690005", "primary-fixed": "#b2ebff", "tertiary-fixed-dim": "#6fd3f5", "on-secondary": "#462b00", "on-secondary-fixed-variant": "#643f00", "inverse-surface": "#e2e2e6", "error-container": "#93000a", "on-surface": "#e2e2e6", "outline": "#879397", "secondary": "#ffb957", "on-error-container": "#ffdad6" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2.5rem", "space-xl": "2.5rem", "space-md": "1rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "display-hero": ["Manrope"], "body-lg": ["Manrope"], "headline-md": ["Manrope"], "label-md": ["Manrope"], "headline-xl-mobile": ["Manrope"], "display-hero-mobile": ["Manrope"], "label-sm": ["Manrope"], "body-md": ["Manrope"], "mono-metric": ["Manrope"], "headline-xl": ["Manrope"], "title-sm": ["Manrope"], "headline-lg": ["Manrope"] }, "fontSize": { "display-hero": ["52px", { "lineHeight": "58px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-hero-mobile": ["34px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "mono-metric": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-xl": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "title-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">flight</span></div><div class="flex flex-col"><span class="font-title-sm text-title-sm text-on-surface font-bold tracking-tight">Решись Авиа</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Аналитика спроса</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Переключить тему" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">dark_mode</span></button><button aria-label="Профиль пользователя" class="flex items-center justify-center p-1 rounded-full" type="button"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-20 bg-surface px-space-md"><div class="flex flex-col w-full pb-8 space-y-5">
+<!-- Subtle Vector Telemetry Glow Background (CSS driven, self-contained) -->
+<div class="relative overflow-hidden pt-1">
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-20 -left-10 w-36 h-36 bg-secondary/10 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Section 1: Hero Header -->
+<div class="flex flex-col space-y-2">
+<div class="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-surface-container-high text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold">МОДЕЛЬ СПРОСА V4.2 • ОБНОВЛЕНО 12 МИН НАЗАД</span>
+</div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface tracking-tight font-extrabold">
+        Рассчитай спрос
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">
+        Вероятностное моделирование рыночной ёмкости и порога загрузки рейсов
+      </p>
+</div>
+</div>
+<!-- Section 2: Aviasales-style Monolithic Search Module -->
+<div class="w-full bg-surface-container-low rounded-xl shadow-xl p-1.5 flex flex-col space-y-1">
+<!-- Segment 1: Origin -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ОТКУДА</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">Москва</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-bold tracking-wider">MOW</span>
+<span class="material-symbols-outlined text-[18px] text-outline">lock</span>
+</div>
+</div>
+<!-- Segment 2: Destination -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">КУДА</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">Сочи</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm font-bold tracking-wider">AER</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<!-- Segment 3 & 4: Two-column nested parameters -->
+<div class="grid grid-cols-2 gap-1">
+<!-- Date -->
+<div class="flex flex-col p-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">КОГДА</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-title-sm text-title-sm text-on-surface font-bold">15 июн, пн</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px]">calendar_today</span>
+<span class="font-label-sm text-label-sm">2026 г.</span>
+</div>
+</div>
+<!-- Price -->
+<div class="flex flex-col p-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ЦЕНА БИЛЕТА</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">8 500 ₽</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">База: 7 800 ₽</span>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full mt-1.5 py-3.5 px-4 bg-primary text-on-primary rounded-lg font-title-sm text-title-sm font-extrabold flex items-center justify-center gap-2 shadow-lg hover:brightness-105 active:scale-[0.99] transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span>Рассчитать спрос</span>
+</button>
+</div>
+<!-- Section 3: Forecast Header & Quick Actions -->
+<div class="flex flex-col space-y-2 pt-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h2 class="font-title-sm text-title-sm text-on-surface font-bold">Москва — Сочи, 15 июня 2026</h2>
+<span class="px-2 py-0.5 rounded-full bg-primary/15 text-primary font-label-sm text-label-sm font-bold">РАССЧИТАНО</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+          Прогноз спроса при тарифе 8 500 ₽ <span class="text-secondary font-semibold">(+9.0% к базе)</span>
+</p>
+</div>
+</div>
+<!-- Micro Action Chips -->
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm font-semibold transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">tune</span>
+<span>Параметры</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm font-semibold transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">ios_share</span>
+<span>Экспорт</span>
+</button>
+</div>
+</div>
+<!-- Section 4: 3 KPI Summary Cards -->
+<div class="grid grid-cols-3 gap-2">
+<!-- Card 1 -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase line-clamp-1">МЕСТ В БОРТУ</span>
+<div class="my-1.5">
+<span class="font-mono-metric text-mono-metric text-on-surface font-extrabold tracking-tight">180</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">A320-200</span>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-8 h-8 bg-secondary/10 rounded-bl-full pointer-events-none"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase line-clamp-1">КУПЯТ (P50)</span>
+<div class="my-1.5 flex items-baseline gap-1">
+<span class="font-mono-metric text-mono-metric text-secondary font-extrabold tracking-tight">214</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold truncate">+34 чел.</span>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase line-clamp-1">ПРОГНОЗ</span>
+<div class="my-1.5">
+<span class="font-mono-metric text-mono-metric text-primary font-extrabold tracking-tight">180</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold truncate">100% лимит</span>
+</div>
+</div>
+<!-- Section 5: Warning Banner -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col space-y-2.5 shadow-md relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l"></div>
+<div class="flex items-start gap-2.5 pl-1.5">
+<div class="w-8 h-8 rounded-lg bg-secondary/15 flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-title-sm text-title-sm text-secondary font-bold">Спрос выше числа мест (+34 чел.)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-normal">
+          Продажи упираются в лимит борта. Рекомендуется поднять тариф на 700–1 000 ₽ или сменить борт на A321 (220 мест).
+        </p>
+</div>
+</div>
+<button class="self-start ml-1.5 px-3 py-1.5 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md font-bold flex items-center gap-1.5 hover:brightness-105 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">price_change</span>
+<span>Оптимизировать тариф</span>
+</button>
+</div>
+<!-- Section 6: Demand Distribution Chart (Probability Curve SVG) -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col space-y-3 shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">analytics</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold">Распределение спроса</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Monte-Carlo N=10 000</span>
+</div>
+<!-- Chart Canvas Area -->
+<div class="w-full bg-surface-container-lowest rounded-lg p-2.5 flex flex-col">
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm mb-1 px-1">
+<span>Y: Плотность вероятности</span>
+<span class="text-secondary font-bold">Зона дефицита мест</span>
+</div>
+<!-- Interactive / Detailed SVG Graphic -->
+<div class="w-full overflow-hidden">
+<svg class="w-full h-auto select-none" viewbox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Cyan gradient under curve -->
+<lineargradient id="cyanArea" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#5dd5f7" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#5dd5f7" stop-opacity="0.0"></stop>
+</lineargradient>
+<!-- Amber overflow area -->
+<lineargradient id="amberOverflow" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ffb957" stop-opacity="0.45"></stop>
+<stop offset="100%" stop-color="#ffb957" stop-opacity="0.05"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Grid Lines -->
+<line stroke="#282a2d" stroke-dasharray="2,2" stroke-width="1" x1="25" x2="330" y1="30" y2="30"></line>
+<line stroke="#282a2d" stroke-dasharray="2,2" stroke-width="1" x1="25" x2="330" y1="75" y2="75"></line>
+<line stroke="#282a2d" stroke-width="1" x1="25" x2="330" y1="120" y2="120"></line>
+<!-- Full Under-Curve Baseline Area -->
+<path d="M 25 120 C 70 120, 110 115, 140 85 C 170 55, 195 20, 220 20 C 245 20, 270 55, 295 95 C 315 118, 325 120, 330 120 Z" fill="url(#cyanArea)"></path>
+<!-- Amber Overflow Area (Right of 180 seats ~ X=148) -->
+<!-- Clip or explicit path slice from 148 to 330 -->
+<path d="M 148 120 L 148 77 C 170 55, 195 20, 220 20 C 245 20, 270 55, 295 95 C 315 118, 325 120, 330 120 Z" fill="url(#amberOverflow)"></path>
+<!-- Main Probability Curve -->
+<path d="M 25 120 C 70 120, 110 115, 140 85 C 170 55, 195 20, 220 20 C 245 20, 270 55, 295 95 C 315 118, 325 120, 330 120" fill="none" stroke="#5dd5f7" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Seat Limit Vertical Dashed Line (180 seats at X=148) -->
+<line stroke="#ffb957" stroke-dasharray="4,3" stroke-width="2" x1="148" x2="148" y1="15" y2="120"></line>
+<rect fill="#282a2d" height="15" rx="3" width="60" x="118" y="10"></rect>
+<text fill="#ffb957" font-family="Manrope" font-size="9" font-weight="700" text-anchor="middle" x="148" y="21">Лимит: 180</text>
+<!-- Median P50 Point Highlight (214 seats at X=220, Y=20) -->
+<circle cx="220" cy="20" fill="#5dd5f7" r="5"></circle>
+<circle cx="220" cy="20" fill="#5dd5f7" fill-opacity="0.3" r="8"></circle>
+<line stroke="#5dd5f7" stroke-dasharray="2,2" stroke-width="1.5" x1="220" x2="220" y1="28" y2="120"></line>
+<!-- P50 Badge -->
+<rect fill="#1e2023" height="18" rx="4" width="80" x="180" y="32"></rect>
+<text fill="#e2e2e6" font-family="Manrope" font-size="9" font-weight="800" text-anchor="middle" x="220" y="44">P50: 214 (18.4%)</text>
+<!-- X-Axis Labels -->
+<text fill="#bcc8cd" font-family="Manrope" font-size="9" x="30" y="133">140</text>
+<text fill="#ffb957" font-family="Manrope" font-size="9" font-weight="700" text-anchor="middle" x="148" y="133">180</text>
+<text fill="#5dd5f7" font-family="Manrope" font-size="9" font-weight="700" text-anchor="middle" x="220" y="133">214</text>
+<text fill="#bcc8cd" font-family="Manrope" font-size="9" text-anchor="end" x="325" y="133">270</text>
+<text fill="#879397" font-family="Manrope" font-size="9" text-anchor="middle" x="175" y="148">X: Число желающих купить билет</text>
+</svg>
+</div>
+</div>
+</div>
+<!-- Section 7: Compact Percentile Chips Carousel / Grid (P10 to P90) -->
+<div class="flex flex-col space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface font-bold">Перцентили спроса</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">P10 – P90</span>
+</div>
+<!-- Scrollable Horizontal Rail for Touch Ergonomics -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar -mx-space-md px-space-md">
+<!-- P10 -->
+<div class="flex flex-col items-center justify-center min-w-[62px] py-2 px-1 rounded-lg bg-surface-container-low shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">P10</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">150</span>
+</div>
+<!-- P20 -->
+<div class="flex flex-col items-center justify-center min-w-[62px] py-2 px-1 rounded-lg bg-surface-container-low shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">P20</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">168</span>
+</div>
+<!-- P30 -->
+<div class="flex flex-col items-center justify-center min-w-[62px] py-2 px-1 rounded-lg bg-surface-container-low shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">P30</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">182</span>
+</div>
+<!-- P40 -->
+<div class="flex flex-col items-center justify-center min-w-[62px] py-2 px-1 rounded-lg bg-surface-container-low shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">P40</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">198</span>
+</div>
+<!-- P50 (Highlighted Cyan Key Target) -->
+<div class="flex flex-col items-center justify-center min-w-[68px] py-2 px-1 rounded-lg bg-primary/20 shrink-0 shadow-md">
+<span class="font-label-sm text-label-sm text-primary font-bold">P50 МЕД</span>
+<span class="font-title-sm text-title-sm text-primary font-extrabold mt-0.5">214</span>
+</div>
+<!-- P60 -->
+<div class="flex flex-col items-center justify-center min-w-[62px] py-2 px-1 rounded-lg bg-surface-container-low shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">P60</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">226</span>
+</div>
+<!-- P70 -->
+<div class="flex flex-col items-center justify-center min-w-[62px] py-2 px-1 rounded-lg bg-surface-container-low shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">P70</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">238</span>
+</div>
+<!-- P80 -->
+<div class="flex flex-col items-center justify-center min-w-[62px] py-2 px-1 rounded-lg bg-surface-container-low shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">P80</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">251</span>
+</div>
+<!-- P90 -->
+<div class="flex flex-col items-center justify-center min-w-[62px] py-2 px-1 rounded-lg bg-surface-container-low shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">P90</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold mt-0.5">262</span>
+</div>
+</div>
+</div>
+<!-- Section 8: Revenue Optimization Strategy Card -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col space-y-3 shadow-lg relative overflow-hidden">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[24px]">trending_up</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Оптимальная стратегия доходности</span>
+<p class="font-body-md text-body-md text-on-surface font-medium mt-1 leading-snug">
+          Повышение цены до <strong class="text-on-surface font-bold">9 200 ₽</strong> сбалансирует спрос до <strong class="text-primary font-bold">184 мест</strong> (<span class="text-primary font-bold">+11.8%</span> к итоговой выручке рейса).
+        </p>
+</div>
+</div>
+<button class="w-full py-3 px-4 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-lg font-title-sm text-title-sm font-bold flex items-center justify-center gap-2 transition-colors active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">auto_fix_high</span>
+<span>Применить оптимизацию тарифа</span>
+</button>
+</div>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_16px_rgba(0,0,0,0.35)]" data-active-classes="text-primary font-bold"><div class="h-16 px-space-sm flex items-center justify-around"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 transition-colors text-primary font-bold" data-path="prognoz-sprosa" href="#"><span class="material-symbols-outlined text-[22px]">radar</span><span class="font-label-sm text-label-sm">Спрос</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="napravleniya" href="#"><span class="material-symbols-outlined text-[22px]">connecting_airports</span><span class="font-label-sm text-label-sm">Маршруты</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="zagruzka-reysov" href="#"><span class="material-symbols-outlined text-[22px]">stacked_line_chart</span><span class="font-label-sm text-label-sm">Загрузка</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="preduprezhdeniya" href="#"><span class="material-symbols-outlined text-[22px]">notifications_active</span><span class="font-label-sm text-label-sm">Риски</span></a></div></nav></body></html>
